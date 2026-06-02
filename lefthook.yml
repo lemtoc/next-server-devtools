@@ -1,0 +1,12 @@
+pre-commit:
+  commands:
+    fmt:
+      run: bun oxfmt --no-error-on-unmatched-pattern {staged_files}
+      stage_fixed: true
+pre-push:
+  parallel: true
+  commands:
+    fmt:
+      run: bun oxfmt --check --no-error-on-unmatched-pattern {push_files}
+    lint:
+      run: bun oxlint --no-error-on-unmatched-pattern {push_files}

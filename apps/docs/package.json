@@ -1,13 +1,17 @@
 {
   "name": "docs",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --port 3001",
     "build": "next build",
     "start": "next start",
-    "check-types": "next typegen && tsc --noEmit"
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "typecheck": "next typegen && tsgo --noEmit"
   },
   "dependencies": {
     "next": "16.2.0",
