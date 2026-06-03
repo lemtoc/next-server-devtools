@@ -19,8 +19,8 @@ export default defineConfig({
         extends: true,
         test: {
           environment: "jsdom",
-          include: [`apps/web/${testFilePattern}`],
-          name: "web",
+          include: [`apps/playground/${testFilePattern}`],
+          name: "playground",
         },
       },
       {

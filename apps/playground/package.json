@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "playground",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -11,8 +11,8 @@
     "fmt:check": "oxfmt --check",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
-    "test": "vitest run --root ../.. --project=web",
-    "test:watch": "vitest --watch --root ../.. --project=web",
+    "test": "vitest run --root ../.. --project=playground",
+    "test:watch": "vitest --watch --root ../.. --project=playground",
     "typecheck": "next typegen && tsgo --noEmit"
   },
   "dependencies": {
