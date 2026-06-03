@@ -1,5 +1,5 @@
 {
-  "name": "next-server-devtools",
+  "name": "next-server-devtools-monorepo",
   "private": true,
   "workspaces": [
     "apps/*",

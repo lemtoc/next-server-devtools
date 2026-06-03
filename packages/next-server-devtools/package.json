@@ -1,0 +1,56 @@
+{
+  "name": "next-server-devtools",
+  "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./events": {
+      "types": "./src/events-route.ts",
+      "default": "./src/events-route.ts"
+    },
+    "./openapi-fetch": {
+      "types": "./src/openapi-fetch.ts",
+      "default": "./src/openapi-fetch.ts"
+    },
+    "./route": {
+      "types": "./src/route.ts",
+      "default": "./src/route.ts"
+    },
+    "./server/network-events-route": {
+      "types": "./src/events-route.ts",
+      "default": "./src/events-route.ts"
+    },
+    "./server/network-route": {
+      "types": "./src/route.ts",
+      "default": "./src/route.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsgo --project tsconfig.json",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "test": "vitest run --root ../.. --project=packages",
+    "test:watch": "vitest --watch --root ../.. --project=packages",
+    "typecheck": "tsgo --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.12.23"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "@types/node": "^22.15.3",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "typescript": "5.9.2"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  }
+}
