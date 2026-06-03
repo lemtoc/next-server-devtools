@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "next": "16.2.0",
+    "next-server-devtools": "*",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

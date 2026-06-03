@@ -1,6 +1,8 @@
 import Image, { type ImageProps } from "next/image";
+import { headers } from "next/headers";
 import { AlertButton } from "./alert-button";
 import styles from "./page.module.css";
+import { RunClientFetchButton } from "./run-client-fetch-button";
 
 type Props = Omit<ImageProps, "src"> & {
   srcLight: string;
@@ -17,6 +19,27 @@ const ThemeImage = (props: Props) => {
     </>
   );
 };
+
+const getOrigin = async (): Promise<string> => {
+  const headerStore = await headers();
+  const host = headerStore.get("host") ?? "localhost:3000";
+  const protocol = host.startsWith("localhost") || host.startsWith("127.0.0.1") ? "http" : "https";
+
+  return `${protocol}://${host}`;
+};
+
+async function runServerFetch() {
+  "use server";
+
+  const origin = await getOrigin();
+
+  await fetch(`${origin}/api/playground/upstream?token=server-secret&query=visible`, {
+    headers: {
+      Authorization: "Bearer server-secret",
+      "x-playground": "server",
+    },
+  });
+}
 
 export default function Home() {
   return (
@@ -62,6 +85,14 @@ export default function Home() {
           >
             Read our docs
           </a>
+        </div>
+        <div className={styles.ctas}>
+          <form action={runServerFetch}>
+            <button className={styles.secondary} type="submit">
+              Run server fetch
+            </button>
+          </form>
+          <RunClientFetchButton className={styles.secondary} />
         </div>
         <AlertButton appName="playground" className={styles.secondary}>
           Open alert

@@ -81,6 +81,10 @@
   font-weight: 500;
 }
 
+.ctas form {
+  display: flex;
+}
+
 a.primary {
   background: var(--foreground);
   color: var(--background);
@@ -113,6 +117,11 @@ button.secondary {
   background: transparent;
   border-color: var(--gray-alpha-200);
   min-width: 180px;
+}
+
+button.secondary:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
 }
 
 .footer {
@@ -174,8 +183,17 @@ button.secondary {
     padding: 0 16px;
   }
 
+  .ctas form {
+    width: 100%;
+  }
+
   a.secondary {
     min-width: auto;
+  }
+
+  button.secondary {
+    min-width: auto;
+    width: 100%;
   }
 
   .footer {
