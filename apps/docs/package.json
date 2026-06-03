@@ -11,6 +11,8 @@
     "fmt:check": "oxfmt --check",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
+    "test": "vitest run --root ../.. --project=docs",
+    "test:watch": "vitest --watch --root ../.. --project=docs",
     "typecheck": "next typegen && tsgo --noEmit"
   },
   "dependencies": {
